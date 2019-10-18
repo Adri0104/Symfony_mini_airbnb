@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2694257f-cf15-4eb1-b9ad-4dce971c9e62" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/ad/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ad/create.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ad/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ad/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,6 +166,11 @@
       <updated>1571220158076</updated>
       <workItem from="1571220159335" duration="14230000" />
       <workItem from="1571299957065" duration="5604000" />
+      <workItem from="1571332068104" duration="47000" />
+      <workItem from="1571334200199" duration="46000" />
+      <workItem from="1571377980768" duration="168000" />
+      <workItem from="1571388107504" duration="449000" />
+      <workItem from="1571413299722" duration="6642000" />
     </task>
     <servers />
   </component>
