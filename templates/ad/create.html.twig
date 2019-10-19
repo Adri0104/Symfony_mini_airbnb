@@ -4,7 +4,7 @@
     Création d'une annonce
 {% endblock %}
 
-{#{% form_theme form _self %}#}
+{% form_theme form _self %}
 
 {% block body %}
     <div class="container">
@@ -16,6 +16,37 @@
             </p>
         {{ form_end(form) }}
     </div>
+{% endblock %}
+
+{% block _ad_form_images_widget %}
+    <p>Ajouter des photos</p>
+    {{ form_widget(form) }}
+    <div class="form-group">
+        <button type="button" id="add-img" class="btn btn-primary">Ajouter</button>
+    </div>
+{% endblock %}
+
+{% block _ad_form_images_entry_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block _ad_form_images_entry_widget %}
+    <div class="form-group">
+        <div class="row">
+            <div class="col">{{ form_widget(form.url) }}</div>
+            <div class="col">{{ form_widget(form.caption) }}</div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $('#add-img').click(function () {
+            const index = $('#ad_form_images div.form-group').length;
+            const tmpl = $('#ad_form_images').data('prototype').replace(/__name__/g, index);
+            $('#ad_form_images').append(tmpl);
+        })
+    </script>
 {% endblock %}
 {#
 

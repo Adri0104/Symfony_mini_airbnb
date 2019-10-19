@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2694257f-cf15-4eb1-b9ad-4dce971c9e62" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/partials/footer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/msg_flash.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/AdFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AdFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ad/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/create.html.twig" afterDir="false" />
@@ -174,7 +170,8 @@
       <workItem from="1571377980768" duration="168000" />
       <workItem from="1571388107504" duration="449000" />
       <workItem from="1571413299722" duration="6900000" />
-      <workItem from="1571486090025" duration="6473000" />
+      <workItem from="1571486090025" duration="6856000" />
+      <workItem from="1571497607076" duration="3115000" />
     </task>
     <servers />
   </component>
