@@ -4,31 +4,36 @@ namespace App\Form;
 
 use App\Entity\Ad;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AdFormType extends AbstractType
 {
+    private function getConfiguration($label, $placeholder)
+    {
+        return [
+            'label' => $label,
+            'attr' => [
+                'placeholder' => $placeholder
+            ]
+        ];
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', null, [
-                'attr' => [
-                    'autofocus' => true, 'class' => 'form-control',
-                    'placeholder' => "Titre de l'annonce"
-                ]
-            ])
-            ->add('slug')
-            ->add('price')
-            ->add('introduction', null, [
-                'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => "L'introduction de l'annonce"
-                ]
-            ])
-            ->add('content')
-            ->add('coverImage')
-            ->add('rooms')
+            ->add('title', TextType::class, $this->getConfiguration("Titre", "Votre titre de l'annonce"))
+            ->add('slug', TextType::class, $this->getConfiguration("Url", "Votre adresse"))
+            ->add('coverImage', UrlType::class, $this->getConfiguration("Url de l'image", "Votre url"))
+            ->add('introduction', TextType::class, $this->getConfiguration("Introduction", "Introduction globale de l'annonce"))
+            ->add('content', TextareaType::class, $this->getConfiguration("Description détaillée", "Votre description"))
+            ->add('rooms', IntegerType::class, $this->getConfiguration("Nombre de chambre", "Exemple : 3"))
+            ->add('price', MoneyType::class, $this->getConfiguration("Prix par nuit", "Votre prix"))
         ;
     }
 
