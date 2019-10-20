@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2694257f-cf15-4eb1-b9ad-4dce971c9e62" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/ad/_collection.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ad/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Ad.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Image.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AdFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AdFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ImageFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ImageFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ad/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/create.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,6 +173,7 @@
       <workItem from="1571486090025" duration="6856000" />
       <workItem from="1571497607076" duration="3115000" />
       <workItem from="1571566146984" duration="7203000" />
+      <workItem from="1571588856995" duration="1532000" />
     </task>
     <servers />
   </component>
