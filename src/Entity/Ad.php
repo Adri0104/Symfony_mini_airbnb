@@ -6,10 +6,13 @@ use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(fields={"title"}, message="Ce titre existe déjà")
  */
 class Ad
 {
@@ -21,6 +24,7 @@ class Ad
     private $id;
 
     /**
+     * @Assert\Length(min=10, max="255", minMessage="Le titre est trop court. 10 carctères mini", maxMessage="Le titre est trop log")
      * @ORM\Column(type="string", length=255)
      */
     private $title;
@@ -36,16 +40,19 @@ class Ad
     private $price;
 
     /**
+     * @Assert\Length(min=10, minMessage="L'intro est trop court. 10 carctères mini")
      * @ORM\Column(type="text")
      */
     private $introduction;
 
     /**
+     * @Assert\Length(min=10, minMessage="Le contenu est trop court. 10 carctères mini")
      * @ORM\Column(type="text")
      */
     private $content;
 
     /**
+     * @Assert\Url()
      * @ORM\Column(type="string", length=255)
      */
     private $coverImage;
@@ -56,6 +63,7 @@ class Ad
     private $rooms;
 
     /**
+     * @Assert\Valid()
      * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="ad", orphanRemoval=true)
      */
     private $images;
