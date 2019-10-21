@@ -7,10 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(fields={"email"}, message="Cette adresse email est déjà inscrite")
  */
 class User implements UserInterface
 {
@@ -22,21 +25,25 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Veuillez renseigner votre prénom")
      * @ORM\Column(type="string", length=255)
      */
     private $firstName;
 
     /**
+     * @Assert\NotBlank(message="Veuillez renseigner votre nom")
      * @ORM\Column(type="string", length=255)
      */
     private $lastName;
 
     /**
+     * @Assert\Email(message="Veuillez renseigner un email valide")
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
     /**
+     * @Assert\Url(message="Veuillez renseigner une URL valide")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
@@ -47,11 +54,18 @@ class User implements UserInterface
     private $hash;
 
     /**
+     * @Assert\EqualTo(propertyPath="hash", message="Votre mot de passe n'est pas similaire")
+     */
+    private $passwordConfirm;
+
+    /**
+     * @Assert\Length(min=10, minMessage="Votre introduction doit faire au moins 10 caractères")
      * @ORM\Column(type="string", length=255)
      */
     private $introduction;
 
     /**
+     * @Assert\Length(min=50, minMessage="Votre description doit faire au moins 50 caractères")
      * @ORM\Column(type="text")
      */
     private $description;
@@ -145,6 +159,18 @@ class User implements UserInterface
     public function setHash(string $hash): self
     {
         $this->hash = $hash;
+
+        return $this;
+    }
+
+    public function getPasswordConfirm(): ?string
+    {
+        return $this->passwordConfirm;
+    }
+
+    public function setPasswordConfirm(string $passwordConfirm): self
+    {
+        $this->passwordConfirm = $passwordConfirm;
 
         return $this;
     }
