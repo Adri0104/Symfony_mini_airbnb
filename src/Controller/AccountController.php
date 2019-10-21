@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\PasswordUpdate;
 use App\Entity\User;
+use App\Form\AccountFormType;
+use App\Form\PasswordUpdateFormType;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -48,6 +51,37 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('account.login');
         }
         return $this->render('account/registration.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("account/profile", name="account.profile")
+     */
+    public function profile(Request $request, EntityManagerInterface $em)
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(AccountFormType::class, $user);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $em->persist($user);
+            $em->flush();
+            $this->addFlash('success', "Votre compte a bien été modifié");
+//            return $this->redirectToRoute('account.login');
+        }
+        return $this->render('account/profile.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/account/update-password", name="account.password")
+     */
+    public function updatePassword()
+    {
+        $pwdUpdate = new PasswordUpdate();
+        $form = $this->createForm(PasswordUpdateFormType::class, $pwdUpdate);
+        return $this->render('account/password.html.twig', [
             'form' => $form->createView()
         ]);
     }
