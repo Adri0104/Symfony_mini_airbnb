@@ -9,6 +9,7 @@ use App\Form\PasswordUpdateFormType;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -77,10 +78,25 @@ class AccountController extends AbstractController
     /**
      * @Route("/account/update-password", name="account.password")
      */
-    public function updatePassword()
+    public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $em)
     {
         $pwdUpdate = new PasswordUpdate();
+        $user = $this->getUser();
         $form = $this->createForm(PasswordUpdateFormType::class, $pwdUpdate);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            if(!password_verify($pwdUpdate->getOldPassword(), $user->getHash())) {
+                $form->get('oldPassword')->addError(new FormError("Le mot de passe que vous avez tapé ne correspond pas à l'ancien"));
+            } else {
+                $newPwd = $pwdUpdate->getNewPassword();
+                $hash = $encoder->encodePassword($user, $newPwd);
+                $user->setHash($hash);
+                $em->persist($user);
+                $em->flush();
+                $this->addFlash('success', "Votre mot de passe a bien été modifié");
+                return $this->redirectToRoute('index.home');
+            }
+        }
         return $this->render('account/password.html.twig', [
             'form' => $form->createView()
         ]);
