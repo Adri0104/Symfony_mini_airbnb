@@ -17,13 +17,15 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        <i class="far fa-user"></i>
+                        <img src="{{ app.user.picture }}" class="avatar avatar-mini" alt="{{ app.user.fullName }}"> {{ app.user.fullName }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-default"
                          aria-labelledby="navbarDropdownMenuLink-333">
                         <a class="dropdown-item" href="{{ path('account.profile') }}">Modifier donnée</a>
                         <a class="dropdown-item" href="{{ path('account.logout') }}"><i class="far fa-sign-out-alt"></i> Se déconnecter</a>
                         <a class="dropdown-item" href="{{ path('account.password') }}">Mot de passe</a>
+                        <a class="dropdown-item" href="{{ path('account.index') }}">Mon compte</a>
+                        <a class="dropdown-item" href="{{ path('ads.create') }}">Créer annonce</a>
                     </div>
                 </li>
             {% else %}
