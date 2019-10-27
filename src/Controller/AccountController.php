@@ -115,4 +115,12 @@ class AccountController extends AbstractController
             'user' => $this->getUser()
         ]);
     }
+
+    /**
+     * @Route("/account/booking", name="account.booking")
+     */
+    public function bookingd()
+    {
+        return $this->render('account/bookings.html.twig');
+    }
 }

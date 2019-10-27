@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
@@ -30,11 +31,15 @@ class Booking
     private $ad;
 
     /**
+     * @Assert\Date(message="La date d'arrivée doit être au bon format")
+     * @Assert\GreaterThan("today", message="La date d'arrivée doit être ultérieure à la date d'aujourd'hui")
      * @ORM\Column(type="datetime")
      */
     private $startDate;
 
     /**
+     * @Assert\Date(message="La date de départ doit être au bon format")
+     * @Assert\GreaterThan(propertyPath="startDate", message="La date de départ doit être plus éloignéz que la date d'arrivée")
      * @ORM\Column(type="datetime")
      */
     private $endDate;
@@ -68,6 +73,34 @@ class Booking
         {
             $this->amount = $this->ad->getPrice();
         }
+    }
+
+    public function isBookableDates()
+    {
+        $notAvailableDays = $this->ad->getNotAvailableDays();
+        $bookingDays = $this->getDays();
+        $formatDay = function ($day) {
+            return $day->format('Y-m-d');
+        };
+        $days = array_map($formatDay, $bookingDays);
+        $notAvailable = array_map($formatDay, $notAvailableDays);
+        foreach ($days as $day) {
+            if(array_search($day, $notAvailable) !== false) return false;
+        }
+        return true;
+    }
+
+    public function getDays()
+    {
+        $result = range(
+            $this->startDate->getTimestamp(),
+            $this->endDate->getTimestamp(),
+            24 * 60 * 60
+        );
+        $days = array_map(function ($dayTimestamp) {
+            return new \DateTime(date('Y-m-d', $dayTimestamp));
+        }, $result);
+        return $days;
     }
 
     public function getDuration()
