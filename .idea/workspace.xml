@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2694257f-cf15-4eb1-b9ad-4dce971c9e62" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/admin/base.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/partials/footer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/partials/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ad.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ApplicationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ApplicationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/bookings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/bookings.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ad/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/booking/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booking/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,6 +142,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/admin/ad" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -186,7 +188,7 @@
       <workItem from="1571991909399" duration="6915000" />
       <workItem from="1572172783159" duration="9731000" />
       <workItem from="1572283487309" duration="4421000" />
-      <workItem from="1572367174767" duration="4452000" />
+      <workItem from="1572367174767" duration="7342000" />
     </task>
     <servers />
   </component>

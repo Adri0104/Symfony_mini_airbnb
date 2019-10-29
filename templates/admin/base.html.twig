@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% include 'admin/partials/header.html.twig' %}
+{% block body %}{% endblock %}
+{% include 'admin/partials/footer.html.twig' %}
+<script src="{{ asset("js/jquery.min.js") }}"></script>
+{% block javascripts %}{% endblock %}
+<script src="{{ asset("js/popper.min.js") }}"></script>
+<script src="{{ asset("js/bootstrap.min.js") }}"></script>
+</body>
+</html>
