@@ -115,6 +115,16 @@ class Ad
         return 0;
     }
 
+    public function getCommentFromAuthor(User $author)
+    {
+        foreach ($this->comments as $comment) {
+            if($comment->getAuthor() === $author)
+                return $comment;
+
+            return null;
+        }
+    }
+
     public function getNotAvailableDays()
     {
         $notAvailableDays = [];

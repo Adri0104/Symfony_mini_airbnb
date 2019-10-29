@@ -119,7 +119,7 @@ class AccountController extends AbstractController
     /**
      * @Route("/account/booking", name="account.booking")
      */
-    public function bookingd()
+    public function bookings()
     {
         return $this->render('account/bookings.html.twig');
     }
