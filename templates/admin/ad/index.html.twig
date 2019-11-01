@@ -32,8 +32,8 @@
                         </td>
                         <td>{{ ad.avgRatings | number_format(1, ',', ' ') }}</td>
                         <td>
-                            <a href="#" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="{{ path('admin.ads.edit', {'id': ad.id}) }}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                            <a href="{{ path('admin.ads.delete', {'id': ad.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 {% endfor %}

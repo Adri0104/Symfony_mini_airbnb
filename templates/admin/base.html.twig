@@ -9,12 +9,13 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-{% include 'admin/partials/header.html.twig' %}
-{% block body %}{% endblock %}
-{% include 'admin/partials/footer.html.twig' %}
-<script src="{{ asset("js/jquery.min.js") }}"></script>
-{% block javascripts %}{% endblock %}
-<script src="{{ asset("js/popper.min.js") }}"></script>
-<script src="{{ asset("js/bootstrap.min.js") }}"></script>
+    {% include 'admin/partials/header.html.twig' %}
+    {% include 'partials/msg_flash.html.twig' %}
+    {% block body %}{% endblock %}
+    {% include 'admin/partials/footer.html.twig' %}
+    <script src="{{ asset("js/jquery.min.js") }}"></script>
+    {% block javascripts %}{% endblock %}
+    <script src="{{ asset("js/popper.min.js") }}"></script>
+    <script src="{{ asset("js/bootstrap.min.js") }}"></script>
 </body>
 </html>
